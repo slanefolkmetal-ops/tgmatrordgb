@@ -1,0 +1,20 @@
+{
+  "name": "tg-truth-or-dare",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace apps/web run dev",
+    "dev:api": "npm --workspace apps/api run dev",
+    "dev:bot": "npm --workspace apps/bot run dev",
+    "dev": "concurrently -k -n WEB,API,BOT -c blue,green,magenta \"npm:dev:web\" \"npm:dev:api\" \"npm:dev:bot\"",
+    "build:web": "npm --workspace apps/web run build",
+    "build:api": "npm --workspace apps/api run build",
+    "lint": "npm --workspace apps/web run lint || true"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
